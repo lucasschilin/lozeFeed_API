@@ -2,5 +2,7 @@ node_modules
 
 .env
 
-uploads/resized/*
-!uploads/resized/.gitkeep
+tmp/uploads/resized/*
+
+!tmp/uploads/resized/.gitkeep
+

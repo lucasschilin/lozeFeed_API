@@ -17,7 +17,7 @@ module.exports = {
     const [name] = image.split('.');
 
     const fileName = `${name}.jpg`
-
+    console.log(req.file.path);
     await sharp(req.file.path)
       .resize(500)
       .jpeg({quality: 70})

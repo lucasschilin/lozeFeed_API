@@ -30,4 +30,4 @@ app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp', 'uploads',
 
 app.use(routes);
 
-server.listen(3001);
+server.listen(process.env.PORT || 3001);

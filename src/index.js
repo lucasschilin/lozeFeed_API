@@ -12,7 +12,7 @@ const io = require('socket.io')(server);
 
 const routes = require('./routes');
 
-mongoose.connect('mongodb://localhost:27017/lozefeed', {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 
 app.use(cors());
 
-app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads', 'resized')));
+app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp', 'uploads', 'resized')));
 
 app.use(routes);
 

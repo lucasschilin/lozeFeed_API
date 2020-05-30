@@ -38,5 +38,5 @@ const strorageTypes = {
 
 module.exports = {
   dest: path.resolve(__dirname, '..', '..', 'tmp', 'uploads', 'resized'),
-  storage: strorageTypes['local'],
+  storage: strorageTypes[process.env.STORAGE_TYPE],
 }

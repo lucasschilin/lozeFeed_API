@@ -14,21 +14,6 @@ module.exports = {
     const {author, description, place, hashtags} = req.body;
     const {originalname: image, key, location: url = ""} = req.file;
 
-    console.log(req.file);
-
-    // const [name] = key.split('.');
-
-    // const fileName = `${name}.jpg`;
-
-    // await sharp(req.file.path)
-    //   .resize(500)
-    //   .jpeg({quality: 70})
-    //   .toFile(
-    //     path.resolve(req.file.destination, 'resized', fileName)
-    //   );
-
-    // fs.unlinkSync(req.file.path);
-
     const post = await Post.create({
       author, 
       place, 
@@ -43,4 +28,12 @@ module.exports = {
 
     return res.json(post);
   },
+
+  async destroy(req, res){
+    const post = await Post.findById(req.params.id);
+
+    await post.remove();
+
+    return res.send();
+  }
 }
